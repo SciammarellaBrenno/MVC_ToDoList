@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MVC_ToDoList.Models.ListModel>
+
+<div style="display: flex; align-items: center; justify-content: space-between">
+    <h1 style="margin: 0 !important; padding: 0 !important">Listagem</h1>
+    <input type="button" value="Criar" class="btn btn-primary" style="width: 100px !important" onclick="location.href='@Url.Action("Create")'"/>
+</div>
+
+<hr class="my-2"/>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th/>
+            <th>
+                Título
+            </th>
+            <th>
+                Anotação
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.ActionLink("Edit", "Create", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>            
+            <td>
+                <span>@item.Titulo</span>
+            </td>
+            <td>
+                <span>@item.Anotacao</span>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

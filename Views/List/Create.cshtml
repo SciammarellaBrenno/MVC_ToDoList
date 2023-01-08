@@ -1,0 +1,60 @@
+﻿@model MVC_ToDoList.Models.ListModel
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Save">
+            <div style="display: flex; align-items: center; justify-content: space-between">
+
+                @if(Model.Id > 0)
+                {
+                    <h1>Edit</h1>
+                }
+                else
+                {
+                    <h1>Create</h1>
+                }
+
+                <div class="my-3">
+                    <input type="button" value="Cancelar" class="btn btn-secondary" style="width: 100px !important" onclick="location.href='@Url.Action("List")'" />
+                    <input type="submit" value="Salvar" class="btn btn-primary" style="width: 150px !important" />
+                </div>
+
+            </div>
+
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label asp-for="Id" class="control-label">Código</label>
+                        <input asp-for="Id" class="form-control" readonly />
+                        <span asp-validation-for="Id" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-sm-10">
+                    <div class="form-group">
+                        <label asp-for="Titulo" class="control-label">Título</label>
+                        <input asp-for="Titulo" class="form-control" />
+                        <span asp-validation-for="Titulo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label asp-for="Anotacao" class="control-label">Anotação</label>
+                        <textarea asp-for="Anotacao" class="form-control" maxlength="120"></textarea>
+                        <span asp-validation-for="Anotacao" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>            
+        </form>
+    </div>
+</div>
+
+<div>
+    
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
