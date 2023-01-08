@@ -1,8 +1,11 @@
 ﻿@model IEnumerable<MVC_ToDoList.Models.ListModel>
 
-<div style="display: flex; align-items: center; justify-content: space-between">
+<div class="mt-2" style="display: flex; align-items: center; justify-content: space-between">
     <h1 style="margin: 0 !important; padding: 0 !important">Listagem</h1>
-    <input type="button" value="Criar" class="btn btn-primary" style="width: 100px !important" onclick="location.href='@Url.Action("Create")'"/>
+    <div>
+        <input type="button" value="Atualizar" class="btn btn-secondary" style="width: 100px !important" onclick="location.href='@Url.Action("List")'" />
+        <input type="button" value="Criar" class="btn btn-primary" style="width: 100px !important" onclick="location.href='@Url.Action("Create")'"/>
+    </div>
 </div>
 
 <hr class="my-2"/>
